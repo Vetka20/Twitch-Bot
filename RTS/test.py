@@ -7,9 +7,9 @@ s_analog = 0*(t >= 0)*(t < 0.5) + 1*(t >= 0.5)*(t <= 3) + 0*(t > 3)*(t < 4) + 3*
 
 
 
-#plt.figure()
-#plt.plot(t,s_analog)
-#plt.show()
+plt.figure()
+plt.plot(t,s_analog)
+plt.show()
 
 #Функция для востановления отсчетов
 def signal_recovery(kT,samples,T,t):
@@ -36,13 +36,13 @@ def signal_discrete(s_analog,t,delta_t):
             kT = np.append(kT,i)
     return s , kT 
 
-s, kT = signal_discrete(s_analog = s_analog, t = t, delta_t = 0.5)
+s, kT = signal_discrete(s_analog = s_analog, t = t, delta_t = 0.125)
 
-#plt.figure()
-#plt.stem(kT,s)
-#plt.show()
+plt.figure()
+plt.stem(kT,s)
+plt.show()
 
-s_recovery = signal_recovery(kT = kT, samples = s, T = 0.5, t= t)
+s_recovery = signal_recovery(kT = kT, samples = s, T = 0.125, t= t)
 
 plt.figure()
 plt.plot(t,s_analog, label = "analog", color = 'red')
